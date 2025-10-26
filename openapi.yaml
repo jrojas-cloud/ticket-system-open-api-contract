@@ -261,7 +261,7 @@ paths:
           $ref: "#/components/responses/UnauthorizedError"
         "500":
           $ref: "#/components/responses/InternalServerError"
-    
+
     delete:
       tags:
         - Ticket
@@ -313,6 +313,7 @@ components:
         status:
           type: string
           enum: [NEW, OPEN, IN_PROGRESS, RESOLVED, CLOSED]
+          default: NEW
           description: Current status of the ticket
         reporterId:
           type: string
@@ -462,9 +463,9 @@ components:
             code: bad_request
             message: Validation failed
             details:
-             - "Title is required and must be between 1 and 50 characters"
-             - "Description is required and must be between 1 and 250 characters"
-             - "Reporter ID must be a valid UUID format"
+              - "Title is required and must be between 1 and 50 characters"
+              - "Description is required and must be between 1 and 250 characters"
+              - "Reporter ID must be a valid UUID format"
 
     InternalServerError:
       description: Unexpected internal error
